@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 export default function Basket() {
-    const { prod, setProd } = useContext(ProdContext);
+    const { prod } = useContext(ProdContext);
     const baseURL = "http://localhost:3001";
 
     function sendBasket() {

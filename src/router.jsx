@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './Layout';
 import Products from './pages/products';
@@ -9,8 +9,9 @@ export const ProdContext = React.createContext(null);
 
 export default function Router() {
     const [prod, setProd] = useState([]);
+    const prodProviderValue = useMemo(() => ({ prod: prod, setProd: setProd }), [prod, setProd]);
     return (
-        <ProdContext.Provider value={{ prod: prod, setProd: setProd }}>
+        <ProdContext.Provider value={prodProviderValue}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}>
