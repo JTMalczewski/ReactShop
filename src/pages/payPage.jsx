@@ -9,7 +9,6 @@ export default function PayPage() {
     const { prod, setProd } = useContext(ProdContext);
     const [sum, setSum] = useState(0);
     const baseURL = "http://localhost:3001";
-    let temp = 0;
 
     useEffect(() => {
         let tempSum = 0;

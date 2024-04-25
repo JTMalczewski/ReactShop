@@ -37,9 +37,9 @@ export default function Products() {
                                 <td className='products__head__td__center'>
                                     <button
                                         onClick={() => {
-                                            for (let i = 0; i < prod.length; i++) {
-                                                if (prod[i].name === product.name) {
-                                                    prod[i].bucket += 1;
+                                            for (const item of prod) {
+                                                if (item.name === product.name) {
+                                                    item.bucket += 1;
                                                     setProd([...prod])
                                                     break;
                                                 }
@@ -50,9 +50,9 @@ export default function Products() {
                                     </button>
                                     <button
                                         onClick={() => {
-                                            for (let i = 0; i < prod.length; i++) {
-                                                if (prod[i].name === product.name) {
-                                                    prod[i].bucket -= 1;
+                                            for (const item of prod) {
+                                                if (item.name === product.name) {
+                                                    item.bucket -= 1;
                                                     setProd([...prod])
                                                     break;
                                                 }
