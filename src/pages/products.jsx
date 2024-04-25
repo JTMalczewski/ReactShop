@@ -14,6 +14,7 @@ export default function Products() {
             axios.get(baseURL + "/prod")
                 .then((response) => {
                     setProd(response.data)
+                    console.log(response.data)
                 })
     }, []);
     return (
@@ -36,26 +37,26 @@ export default function Products() {
                                 <td className='products__head__td__center'>
                                     <button
                                         onClick={() => {
-                                            setProd(prev => prev.map(prod => {
-                                                if (prod.name === product.name) {
-                                                    return { ...prod, bucket: prod.bucket + 1 }
+                                            for (let i = 0; i < prod.length; i++) {
+                                                if (prod[i].name === product.name) {
+                                                    prod[i].bucket += 1;
+                                                    setProd([...prod])
+                                                    break;
                                                 }
-                                                return prod
-                                            })
-                                            )
+                                            }
                                         }}
                                     >
                                         +
                                     </button>
                                     <button
                                         onClick={() => {
-                                            setProd(prev => prev.map(prod => {
-                                                if (prod.name === product.name) {
-                                                    return { ...prod, bucket: prod.bucket - 1 }
+                                            for (let i = 0; i < prod.length; i++) {
+                                                if (prod[i].name === product.name) {
+                                                    prod[i].bucket -= 1;
+                                                    setProd([...prod])
+                                                    break;
                                                 }
-                                                return prod
-                                            })
-                                            )
+                                            }
                                         }}
                                     >
                                         -
