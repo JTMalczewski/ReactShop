@@ -16,7 +16,7 @@ export default function Products() {
                     setProd(response.data)
                     console.log(response.data)
                 })
-    }, []);
+    }, [prod.length, setProd]);
     return (
         <div className='products'>
             <div className='products__container'>

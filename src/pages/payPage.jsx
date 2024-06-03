@@ -12,11 +12,11 @@ export default function PayPage() {
 
     useEffect(() => {
         let tempSum = 0;
-        prod.filter(product => product.bucket > 0).map(product => {
+        prod.filter(product => product.bucket > 0).map(product =>
             tempSum += product.price * product.bucket
-        })
+        )
         setSum(tempSum)
-    }, []);
+    }, [prod]);
 
     function buy() {
             axios.post(baseURL + "/buy", sum)
